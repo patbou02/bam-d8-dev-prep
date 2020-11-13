@@ -1,0 +1,7 @@
+hello_world:
+  path: '/hello-world'
+  defaults:
+    _controller: '\Drupal\glue\Controller\GlueController::helloWorldPage'
+    _title: 'Hello World test title'
+  requirements:
+    _permission: 'access content'

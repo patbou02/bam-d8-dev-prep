@@ -1,0 +1,4 @@
+hello_world:
+  title: 'Hello world page'
+  description: 'Helo world page description'
+  route_name: hello_world
