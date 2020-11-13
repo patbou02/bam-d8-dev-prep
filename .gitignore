@@ -3,3 +3,10 @@
 
 # phpstorm files
 .idea
+
+# drupal auto generated files
+/drupal/sites/default/files/php/*
+
+# CSS and JS Aggregated files
+/drupal/sites/default/files/css/*
+/drupal/sites/default/files/js/*
