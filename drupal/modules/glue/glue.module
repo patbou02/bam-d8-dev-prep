@@ -17,3 +17,15 @@ function glue_form_alter(&$form, &$form_state, $form_id) {
     );
   }
 }
+
+/**
+ * Implements hook_menu().
+ */
+function glue_menu() {
+  return array(
+    'hello-world' => array(
+      'title' => 'Hello world page',
+      'route_name' => 'hello_world',
+    ),
+  );
+}
