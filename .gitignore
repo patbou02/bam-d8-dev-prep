@@ -1,0 +1,5 @@
+# zip files
+*.zip
+
+# phpstorm files
+.idea
