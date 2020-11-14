@@ -1,0 +1,2 @@
+# Allow Access to Files in Examples folder
+RewriteCond %{REQUEST_URI} !/examples/.+.php$
