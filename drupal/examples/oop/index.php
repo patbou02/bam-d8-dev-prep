@@ -96,13 +96,7 @@ class Form {
   }
 }
 
-interface Page {
-  function build();
-  function theme();
-  //function iDoNotExist();
-}
-
-class DefaultPage implements Page {
+abstract class Page {
 
   public $settings;
   public $title;
@@ -113,17 +107,18 @@ class DefaultPage implements Page {
     $this->title = $title;
   }
 
-  /**
-   * Builds out the content of a page based on the type of elements passed to it.
-   */
-  function build() {
+  public function build() {
     $builder = new Builder();
     $this->output = $builder->render($this->settings);
   }
 
-  /**
-   * Renders the page content based on a simple template.
-   */
+  abstract function theme();
+
+  //abstract function iDoNotExist();
+}
+
+class DefaultPage extends Page {
+
   function theme() {
     return '
       <html>
@@ -137,28 +132,8 @@ class DefaultPage implements Page {
   }
 }
 
-class PrintedPage implements Page {
+class PrintedPage extends Page {
 
-  public $settings;
-  public $title;
-  public $output;
-
-  function __construct($settings, $title) {
-    $this->settings = $settings;
-    $this->title = $title;
-  }
-
-  /**
-   * Builds out the content of a page based on the type of elements passed to it.
-   */
-  function build() {
-    $builder = new Builder();
-    $this->output = $builder->render($this->settings);
-  }
-
-  /**
-   * Renders the page content based on a simple template.
-   */
   function theme() {
     return '
       <html>
