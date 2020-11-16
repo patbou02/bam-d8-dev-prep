@@ -96,7 +96,13 @@ class Form {
   }
 }
 
-class Page {
+interface Page {
+  function build();
+  function theme();
+  //function iDoNotExist();
+}
+
+class DefaultPage implements Page {
 
   public $settings;
   public $title;
@@ -131,8 +137,28 @@ class Page {
   }
 }
 
-class PrintedPage extends Page {
+class PrintedPage implements Page {
 
+  public $settings;
+  public $title;
+  public $output;
+
+  function __construct($settings, $title) {
+    $this->settings = $settings;
+    $this->title = $title;
+  }
+
+  /**
+   * Builds out the content of a page based on the type of elements passed to it.
+   */
+  function build() {
+    $builder = new Builder();
+    $this->output = $builder->render($this->settings);
+  }
+
+  /**
+   * Renders the page content based on a simple template.
+   */
   function theme() {
     return '
       <html>
@@ -190,7 +216,7 @@ class ContactUsController {
     if (isset($_GET['print'])) {
       $page = new PrintedPage($page_elements, 'Contact Us');
     } else {
-      $page = new Page($page_elements, 'Contact Us');
+      $page = new DefaultPage($page_elements, 'Contact Us');
     }
     $page->build();
     return $page->theme();
