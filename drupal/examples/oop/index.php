@@ -1,5 +1,40 @@
 <?php
 
+class Form {
+
+  public $settings;
+
+  function __construct($settings) {
+    $this->settings = $settings;
+  }
+
+  function build() {
+  }
+
+  function validate() {
+  }
+
+  function submit() {
+  }
+}
+
+class Page {
+
+  public $settings;
+
+  function __construct($settings) {
+    $this->settings = $settings;
+  }
+
+  function build() {
+  }
+
+  function theme() {
+  }
+}
+
+
+
 /**
  * Builds a form from an array.
  */
@@ -19,7 +54,6 @@ function build_form($elements) {
 
   // Loop through each form element and render it.
   foreach ($elements as $name => $settings) {
-    $label = '<label>' . $settings['title'] . '</label>';
     switch ($settings['type']) {
       case 'textarea':
         $input = '<textarea name="' . $name . '" ></textarea>';
@@ -31,7 +65,7 @@ function build_form($elements) {
         $input = '<input type="' . $settings['type'] . '" name="' . $name . '" />';
         break;
     }
-    $output .= $label . '<p>' . $input . '</p>';
+    $output .= '<label>' . $settings['title'] . '</label><p>' . $input . '</p>';
   }
 
   // Wrap a form around the inputs.
@@ -46,7 +80,7 @@ function build_form($elements) {
 }
 
 /**
- * Validates the form based on the 'validations' attribute in the form array.
+ * Validates the form base on the 'validations' attribute in the form array.
  */
 function validate_form($elements) {
   foreach ($elements as $name => $settings) {
