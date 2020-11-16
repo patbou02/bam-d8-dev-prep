@@ -5,14 +5,14 @@ class Form {
   public $settings;
   public $form_number = 1;
 
-  function __construct($settings) {
+  public function __construct($settings) {
     $this->settings = $settings;
   }
 
   /**
    * Builds a form from an array.
    */
-  function build() {
+  public function build() {
     $output = '';
 
     // For multiple forms, create a counter.
@@ -57,7 +57,7 @@ class Form {
   /**
    * Validates the form based on the 'validations' attribute in the form array.
    */
-  function validate() {
+  private function validate() {
     foreach ($this->settings as $name => $settings) {
       $value = $_POST[$name];
       if (isset($settings['validations'])) {
@@ -85,7 +85,7 @@ class Form {
   /**
    * Once validated, this processes the form.
    */
-  function submit() {
+  private function submit() {
     $output = '';
     foreach ($this->settings as $name => $settings) {
       $value = $_POST[$name];
@@ -102,7 +102,7 @@ abstract class Page {
   public $title;
   public $output;
 
-  function __construct($settings, $title) {
+  public function __construct($settings, $title) {
     $this->settings = $settings;
     $this->title = $title;
   }
@@ -119,7 +119,7 @@ abstract class Page {
 
 class DefaultPage extends Page {
 
-  function theme() {
+  public function theme() {
     return '
       <html>
         <head>
@@ -134,7 +134,7 @@ class DefaultPage extends Page {
 
 class PrintedPage extends Page {
 
-  function theme() {
+  public function theme() {
     return '
       <html>
         <head>
@@ -149,14 +149,14 @@ class PrintedPage extends Page {
 
 class Validator {
 
-  static function notEmpty($value) {
+  static public function notEmpty($value) {
     if (trim($value) == '') {
       return false;
     }
     return true;
   }
 
-  static function isValidEmail($value) {
+  static public function isValidEmail($value) {
     if (!strstr($value, '@')) {
       return false;
     }
@@ -169,7 +169,7 @@ class Builder {
   public $settings = array();
   public $output = '';
 
-  function render($settings) {
+  public function render($settings) {
     $this->settings = $settings;
     foreach ($this->settings as $id => $values) {
       switch ($values['type']) {
@@ -187,7 +187,7 @@ class Builder {
 }
 
 class ContactUsController {
-  static function ContactUsPage($page_elements) {
+  static public function ContactUsPage($page_elements) {
     if (isset($_GET['print'])) {
       $page = new PrintedPage($page_elements, 'Contact Us');
     } else {
