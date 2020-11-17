@@ -2,7 +2,7 @@
 
 namespace BAM\OOPExampleSite;
 
-//use ThirdParty\Utilities\Validator;
+use ThirdParty\Utilities\Validator;
 //use ThirdParty\Utilities\Validator as OtherValidator;
 
 class Form {
