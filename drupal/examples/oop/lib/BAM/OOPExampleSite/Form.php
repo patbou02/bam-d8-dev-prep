@@ -1,6 +1,9 @@
 <?php
 
-require_once __DIR__ . '/Validator.php';
+namespace BAM\OOPExampleSite;
+
+use ThirdParty\Utilities\Validator;
+//use ThirdParty\Utilities\Validator as OtherValidator;
 
 class Form {
   
@@ -44,18 +47,18 @@ class Form {
       }
       $output .= $label . '<p>' . $input . '</p>';
     }
-    
+
     // Wrap a form around the inputs.
     $output = '
       <form action="' . $_SERVER['PHP_SELF'] . '" method="post">
         <input type="hidden" name="action" value="submit_' . $this->form_number . '" />
         ' . $output . '
       </form>';
-    
+
     // Return the form.
     return $output;
   }
-  
+
   /**
    * Validates the form based on the 'validations' attribute in the form array.
    */
@@ -65,14 +68,18 @@ class Form {
       if (isset($settings['validations'])) {
         foreach ($settings['validations'] as $validation) {
           switch ($validation) {
-            
+
             case 'not_empty':
+              //if (!\ThirdParty\src\Validator::notEmpty($value)) {
+              //if (!OtherValidator::notEmpty($value)) {
               if (!Validator::notEmpty($value)) {
                 return false;
               }
               break;
-            
+
             case 'is_valid_email':
+              //if (!\ThirdParty\src\Validator::isValidEmail($value)) {
+              //if (!OtherValidator::isValidEmail($value)) {
               if (!Validator::isValidEmail($value)) {
                 return false;
               }
@@ -83,7 +90,7 @@ class Form {
     }
     return true;
   }
-  
+
   /**
    * Once validated, this processes the form.
    */

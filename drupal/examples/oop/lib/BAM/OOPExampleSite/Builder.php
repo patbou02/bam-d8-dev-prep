@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/Form.php';
+namespace BAM\OOPExampleSite;
 
 class Builder {
   

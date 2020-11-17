@@ -1,6 +1,8 @@
 <?php
 
-require_once __DIR__ . '/Page.php';
+namespace BAM\OOPExampleSite\Page;
+
+use BAM\OOPExampleSite\Page;
 
 class PrintedPage extends Page {
 
