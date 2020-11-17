@@ -1,5 +1,9 @@
 <?php
 
+namespace BAM\OOPExampleSite\Page;
+
+use BAM\OOPExampleSite\Page;
+
 require_once __DIR__ . '/Page.php';
 
 class DefaultPage extends Page {

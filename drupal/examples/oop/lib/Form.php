@@ -1,7 +1,12 @@
 <?php
 
+namespace BAM\OOPExampleSite;
+
 require_once __DIR__ . '/Validator.php';
 require_once __DIR__ . '/ThirdPartyValidator.php';
+
+//use ThirdParty\Utilities\Validator;
+//use ThirdParty\Utilities\Validator as OtherValidator;
 
 class Form {
   
@@ -68,12 +73,16 @@ class Form {
           switch ($validation) {
             
             case 'not_empty':
+              //if (!\ThirdParty\Utilities\Validator::notEmpty($value)) {
+              //if (!OtherValidator::notEmpty($value)) {
               if (!Validator::notEmpty($value)) {
                 return false;
               }
               break;
             
             case 'is_valid_email':
+              //if (!\ThirdParty\Utilities\Validator::isValidEmail($value)) {
+              //if (!OtherValidator::isValidEmail($value)) {
               if (!Validator::isValidEmail($value)) {
                 return false;
               }

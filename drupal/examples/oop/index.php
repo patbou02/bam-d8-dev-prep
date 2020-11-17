@@ -3,6 +3,9 @@
 require_once __DIR__ . '/lib/Builder.php';
 require_once __DIR__ . '/lib/ContactUsController.php';
 
+use BAM\OOPExampleSite\Builder;
+use BAM\OOPExampleSite\ContactUsController;
+
 // Instantiate a Builder object to use below.
 $builder = new Builder();
 

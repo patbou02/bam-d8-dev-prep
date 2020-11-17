@@ -1,5 +1,7 @@
 <?php
 
+namespace BAM\OOPExampleSite;
+
 abstract class Page {
     
   public $settings;

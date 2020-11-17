@@ -1,6 +1,7 @@
 <?php
 
-// class CustomValidator {
+namespace BAM\OOPExampleSite;
+
 class Validator {
   
   static public function notEmpty($value) {

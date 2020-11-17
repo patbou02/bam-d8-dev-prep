@@ -1,5 +1,7 @@
 <?php
 
+namespace ThirdParty\Utilities;
+
 class Validator {
   
   static public function notEmpty($value) {
