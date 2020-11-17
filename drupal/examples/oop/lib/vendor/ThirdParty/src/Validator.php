@@ -1,6 +1,6 @@
 <?php
 
-namespace ThirdParty\Utilities;
+namespace ThirdParty\src;
 
 class Validator {
   
