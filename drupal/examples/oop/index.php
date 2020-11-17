@@ -1,7 +1,13 @@
 <?php
 
-require_once __DIR__ . '/lib/Builder.php';
-require_once __DIR__ . '/lib/ContactUsController.php';
+function my_autoloader($namespace) {
+  $namespace_array = explode("\\", $namespace);
+  $class = end($namespace_array);
+  $file_location = __DIR__ . '/lib/' . $class . '.php';
+  include $file_location;
+}
+
+spl_autoload_register('my_autoloader');
 
 use BAM\OOPExampleSite\Builder;
 use BAM\OOPExampleSite\ContactUsController;

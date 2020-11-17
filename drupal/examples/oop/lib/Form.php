@@ -2,9 +2,6 @@
 
 namespace BAM\OOPExampleSite;
 
-require_once __DIR__ . '/Validator.php';
-require_once __DIR__ . '/ThirdPartyValidator.php';
-
 //use ThirdParty\Utilities\Validator;
 //use ThirdParty\Utilities\Validator as OtherValidator;
 

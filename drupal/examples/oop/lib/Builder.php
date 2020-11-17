@@ -2,8 +2,6 @@
 
 namespace BAM\OOPExampleSite;
 
-require_once __DIR__ . '/Form.php';
-
 class Builder {
   
   public $settings = array();
