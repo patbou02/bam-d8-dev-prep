@@ -1,6 +1,5 @@
 <?php
 
-// class CustomValidator {
 class Validator {
   
   static public function notEmpty($value) {
@@ -11,7 +10,7 @@ class Validator {
   }
   
   static public function isValidEmail($value) {
-    if (!strstr($value, '@')) {
+    if (!strstr($value, '@') || !strstr($value, '.')) {
       return false;
     }
     return true;
